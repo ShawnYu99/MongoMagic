@@ -1,0 +1,58 @@
+tags:
+  - Users
+summary: get user profile
+security:
+  - Bearer: [Bearer] 
+  - APIKeyHeader: ['authorization']
+responses:
+  200:
+    description: Get user profile
+    schema:
+      required:
+        - email
+        - fullname
+        - org
+        - photo
+      properties:
+        email:
+          type: string
+          example: "user@unsw.com"
+        fullname:
+          type: string
+          example: "User 1"
+        org:
+          type: string
+          example: "UNSW"
+        photo:
+          type: string
+          example: "https://www.unsw.edu.au/__data/assets/image/0003/9078/9078_logo_1.png"
+    examples:
+      - {
+          "email": "use31@unsw.com",
+          "fullname": "User 1",
+          "org": "UNSW",
+          "photo": ""
+        }
+  400:
+    description: Invalid request
+    schema:
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          example: "Invalid email or password"
+    examples:
+      - {"message": "Invalid email or password"}
+      - {"message": "Invalid user type"}
+  500:
+    description: Internal server error
+    schema:
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          example: "Internal server error"
+    examples:
+      - {"message": "Internal server error"}

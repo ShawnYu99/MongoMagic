@@ -1,0 +1,70 @@
+tags:
+  - Users
+summary: update user profile
+security:
+  - Bearer: [Bearer] 
+  - APIKeyHeader: ['authorization']
+parameters:
+  - in: body
+    name: body
+    schema:
+      id: update_profile
+      required:
+        - email
+        - password
+        - fullname
+        - org
+        - user_type
+      properties:
+        email:
+          type: string
+          example: "user1@unsw.com"
+        password:
+          type: string
+          example: "123"
+        fullname:
+          type: string
+          example: "User 1"
+        org:
+          type: string
+          example: "UNSW"
+        user_type:
+          type: string
+          example: "1" 
+responses:
+  200:
+    description: Profile updated successfully
+    schema:
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          example: "Profile updated"
+    examples:
+      - {
+          'message': 'Profile updated'
+        }
+  400:
+    description: Invalid request
+    schema:
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          example: "Email already exists"
+    examples:
+      - {'message': 'Email already exists'}
+      - {'message': 'Missing required fields'}
+  500:
+    description: Internal server error
+    schema:
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          example: "Internal server error"
+    examples:
+      - {"message": "Internal server error"}
