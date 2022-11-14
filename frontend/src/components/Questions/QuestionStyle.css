@@ -1,0 +1,18 @@
+div.questionContainer {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.ant-radio-inner::after {
+    background-color: #4D7393;
+}
+.ant-checkbox-checked .ant-checkbox-inner {
+    background-color: #4D7393;
+    border-color: #4D7393;
+}
+
+.ant-slider-mark{
+    display:flex;
+    margin-bottom: 40px;
+}
